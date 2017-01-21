@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularOpdracht</title>
+	<meta charset="utf-8" />
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js'></script>
+    <script src='Scripts/Characters.js'></script>
+    <script src='Scripts/Enemies.js'></script>
+</head>
+<body>
+    <script>
+
+    </script>
+
+    <script>
+       
+    </script>
+
+
+    <div ng-app="Characters" ng-controller="chCtrl">
+        <form>
+            <ul>
+                <li ng-repeat="x in characters">
+                    {{x.name}}, 
+                    {{x.profession}}, 
+                    {{x.race}}
+                    <span ng-click="removeItem($index)">&times;</span>
+                </li>
+            </ul>
+        </form>
+        <input type="text" ng-model="addName">
+        <select ng-model="selectedProf">
+            <option ng-repeat="x in professions" value="{{x}}">{{x}}</option>
+        </select>
+        <select ng-model="selectedRace">
+            <option ng-repeat="x in races" value="{{x}}">{{x}}</option>
+        </select>
+        
+        <button ng-click="addItem()">Add</button>
+    
+        
+
+        <form>
+            <ul>
+                <li ng-repeat="x in enemies">
+                    {{x.title}},
+                    {{x.monster}}
+                    <span ng-click="removeEnem($index)">&times;</span>
+                </li>
+            </ul>
+        </form>
+        <input type="text" ng-model="addTitle">
+        <select ng-model="selectedMonster">
+            <option ng-repeat="x in monsters" value="{{x}}">{{x}}</option>
+        </select>
+
+        <button ng-click="addEnem()">Add</button>
+
+        <br>
+        <br>
+        <br>
+
+        <form>
+            <select ng-model="selectedChar">
+                <option ng-repeat="x in characters" value="{{x.profession}}">{{x.name}}</option>
+            </select>
+
+            <select ng-model="selectedEnem">
+                <option ng-repeat="x in enemies" value="{{x.monster}}">{{x.title}}</option>
+            </select>
+
+            <button ng-click="fight()">Fight!</button>
+
+        </form>
+
+        <br>
+        <br>
+        <br>
+
+        {{battle}}
+
+        
+
+    </div>
+
+
+
+</body>
+</html>
